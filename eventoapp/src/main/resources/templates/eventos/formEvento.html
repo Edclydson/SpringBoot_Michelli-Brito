@@ -6,16 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Eventos</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
     <h1>Formulário de Cadastro de Eventos</h1>
-    <form method="post">
+    <a class="waves-effect waves-light btn" href="/eventos">Lista de Eventos</a>
+    <form class="container" method="post">
         Nome: <input type="text" name="nome" id="nome">
-        Local: <input type="text" name="local" id="local">
-        Data: <input type="date" name="data" id="data">
-        Horario: <input type="text" name="horario" id="horario">
-
-        <button type="submit">Salvar</button>
+        <div class="row">
+            <div class="input-field col s6">
+                Local: <input type="text" name="local" id="local">
+            </div>
+            <div class="input-field col s3">
+                Data: <input type="date" name="data" id="data">
+            </div>
+            <div class="input-field col s3">
+                Horario: <input type="text" name="horario" id="horario">
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light" type="submit">Salvar</button>
     </form>
+    <!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
