@@ -23,7 +23,35 @@
             <p>Data: <span th:text="${evento.data}"></span></p>
             <p>Horario: <span th:text="${evento.horario}"></span></p>
         </div>
+    
+        <form  method="post" class="container">
+            <h3>Cadastro de Convidados</h3>
+            Nome: <input type="text" name="nomeConvidado">
+            Rg: <input type="text" name="rg">
+            <button class="waves-effect waves-light btn">Adicionar</button>
+        </form>
     </div>
+    <table class="container">
+        <h3 class="container">Lista de Convidados</h3>
+        <thead>
+            <tr>
+                <th>Rg</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+       <tbody>
+            <tr class="container" th:each="convidado : ${Convidado}">
+                
+                    <td>
+                        <p><span th:text="${convidado.rg}"></span></p>
+                    </td>
+                    <td>
+                        <p><span th:text="${convidado.nomeConvidado}"></span></p>
+                    </td>
+                
+            </tr>
+        </tbody>
+    </table>
     
 
     </div>
