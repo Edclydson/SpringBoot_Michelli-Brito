@@ -9,15 +9,24 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-
+    <link rel="stylesheet" href="style/styleCss.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
-    <h1>Lista de Eventos</h1>
-    <h3><a href="/cadastrarevento" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Cadastrar Evento</a></h3>
+<body class="corpoPagina">
 
-    <table class="container">
+    <header >
+        <nav class="navStyle" >
+            <div class="nav-wrapper ">
+                <a  class="brand-logo black-text">Lista de Eventos</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/cadastrarevento" class="waves-effect waves-light btn btnStyle"><i class="material-icons left">cloud</i>Cadastrar Evento</a></li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+
+    <table class="container formStyle">
 
         <thead>
             <tr>
@@ -29,7 +38,7 @@
         </thead>
         <tbody>
             <tr th:each="evento : ${Eventos}">
-                <td><a th:href="@{/{codigo}(codigo=${evento.codigo})}"><span th:text="${evento.nome}"></span></a></td>
+                <td><a class="hrefColor" th:href="@{/{codigo}(codigo=${evento.codigo})}"><span th:text="${evento.nome}"></span></a></td>
                 <td><span th:text="${evento.local}"></span></td>
                 <td><span th:text="${evento.data}"></span></td>
                 <td><span th:text="${evento.horario}"></span></td>

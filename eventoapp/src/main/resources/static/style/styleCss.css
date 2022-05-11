@@ -1,0 +1,41 @@
+.detalhesEvento{
+    box-shadow: 0px 0px 5px grey;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 60px;
+    background-color: #9AB8BA;
+}
+.formConvidado{
+    box-shadow: 0px 0px 5px grey;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 60px;
+    background-color: #9AB8BA;
+}
+.tabelaConvidado{
+    width: 50%;
+}
+.formEvento{
+    box-shadow: 0px 0px 5px grey;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 60px;
+    background-color: #9AB8BA;
+}
+.corpoPagina{
+    background-color:#DDF7F8 ;
+}
+.hrefColor{
+    color: #045256;
+}
+.formStyle{
+    color: #0B1516;
+}
+.navStyle{
+    background-color: #9AB8BA;
+}
+.btnStyle{
+    background-color: #045256;
+}

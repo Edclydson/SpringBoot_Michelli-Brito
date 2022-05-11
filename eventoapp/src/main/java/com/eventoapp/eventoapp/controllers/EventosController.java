@@ -1,5 +1,7 @@
 package com.eventoapp.eventoapp.controllers;
 
+import javax.validation.Valid;
+
 import com.eventoapp.eventoapp.ConvidadoRepository;
 import com.eventoapp.eventoapp.EventoRepository;
 import com.eventoapp.eventoapp.models.Convidado;
@@ -7,10 +9,12 @@ import com.eventoapp.eventoapp.models.Evento;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class EventosController {
@@ -27,8 +31,15 @@ public class EventosController {
     }
 
     @RequestMapping(value="/cadastrarevento",method=RequestMethod.POST)
-    public String form(Evento evento){
+    public String form(@Valid Evento evento,BindingResult result,RedirectAttributes attributes){
+        if(result.hasErrors()){
+            attributes.addFlashAttribute("flashMessage", "Verifique os campos!");
+            attributes.addFlashAttribute("flashType", "danger");
+            return "redirect:/cadastrarevento";
+        }
         er.save(evento);
+        attributes.addFlashAttribute("flashMessage", "Evento cadastrado com sucesso!");
+        attributes.addFlashAttribute("flashType", "success");
         return "redirect:/cadastrarevento";
     }
 
@@ -51,10 +62,17 @@ public class EventosController {
     }
 
     @RequestMapping(value="/{codigo}",method=RequestMethod.POST)
-    public String detalheEvento(@PathVariable("codigo") long codigo, Convidado convidado){
+    public String detalheEvento(@PathVariable("codigo") long codigo,@Valid  Convidado convidado,BindingResult result,RedirectAttributes attributes){
+        if(result.hasErrors()){
+            attributes.addFlashAttribute("flashMessage", "Verifique os campos!");
+            attributes.addFlashAttribute("flashType", "danger");
+            return "redirect:/{codigo}";
+        }
         Evento evento = er.findByCodigo(codigo);
         convidado.setEvento(evento);
         cr.save(convidado);
+        attributes.addFlashAttribute("flashMessage", "Convidado adicionado com sucesso!");
+        attributes.addFlashAttribute("flashType", "success");
         return "redirect:/{codigo}";
     }
 

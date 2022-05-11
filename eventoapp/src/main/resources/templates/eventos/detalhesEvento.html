@@ -9,30 +9,41 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-
+    <link rel="stylesheet" href="style/styleCss.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<body>
-    <h1>Eventos</h1>
-    <h3><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>Lista de Eventos</a></h3>
-    <div th:each="evento : ${Evento}" class="container">
+<body class="corpoPagina">
+    <header>
+        <nav class="navStyle">
+            <div class="nav-wrapper">
+              <a  class="brand-logo black-text">Eventos</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/eventos" class="waves-effect waves-light btn btnStyle"><i class="material-icons left">cloud</i>Lista de Eventos</a></li>
+              </ul>
+            </div>
+          </nav>
+    </header>
+    <div th:each="evento : ${Evento}" class="container detalhesEvento">
         <div class="row">
             <p>Nome: <span th:text="${evento.nome}"></span></p>
             <p>Local: <span th:text="${evento.local}"></span></p>
             <p>Data: <span th:text="${evento.data}"></span></p>
             <p>Horario: <span th:text="${evento.horario}"></span></p>
         </div>
-    
-        <form  method="post" class="container">
+    </div>
+        <div th:if="${flashMessage != null}">
+            <div th:replace="mensagemValidacao :: alert (type=${flashType}, message=${flashMessage})"></div>
+        </div>
+
+        <form  method="post" class="container formConvidado">
             <h3>Cadastro de Convidados</h3>
             Nome: <input type="text" name="nomeConvidado">
             Rg: <input type="text" name="rg">
-            <button class="waves-effect waves-light btn">Adicionar</button>
+            <button class="waves-effect waves-light btn btnStyle">Adicionar</button>
         </form>
-    </div>
-    <table class="container">
-        <h3 class="container">Lista de Convidados</h3>
+    
+    <table class="container tabelaConvidado">
         <thead>
             <tr>
                 <th>Rg</th>
