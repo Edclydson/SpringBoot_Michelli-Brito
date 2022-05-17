@@ -19,7 +19,7 @@
             <div class="nav-wrapper">
               <a  class="brand-logo black-text">Eventos</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/eventos" class="waves-effect waves-light btn btnStyle"><i class="material-icons left">cloud</i>Lista de Eventos</a></li>
+                <li><a href="/eventos" class="waves-effect waves-light btn btnStyle"><i class="material-icons left">storage</i>Lista de Eventos</a></li>
               </ul>
             </div>
           </nav>
@@ -32,7 +32,7 @@
             <p>Horario: <span th:text="${evento.horario}"></span></p>
         </div>
     </div>
-        <div th:if="${flashMessage != null}">
+        <div class="container flashmsg" th:if="${flashMessage != null}">
             <div th:replace="mensagemValidacao :: alert (type=${flashType}, message=${flashMessage})"></div>
         </div>
 
@@ -40,7 +40,7 @@
             <h3>Cadastro de Convidados</h3>
             Nome: <input type="text" name="nomeConvidado">
             Rg: <input type="text" name="rg">
-            <button class="waves-effect waves-light btn btnStyle">Adicionar</button>
+            <button class="waves-effect waves-light btn btnStyle"><i class="material-icons left">person_add</i>Adicionar</button>
         </form>
     
     <table class="container tabelaConvidado">
@@ -48,6 +48,7 @@
             <tr>
                 <th>Rg</th>
                 <th>Nome</th>
+                <th>Deletar</th>
             </tr>
         </thead>
        <tbody>
@@ -58,6 +59,9 @@
                     </td>
                     <td>
                         <p><span th:text="${convidado.nomeConvidado}"></span></p>
+                    </td>
+                    <td>
+                        <a class="waves-effect waves-light btn-small btnStyle" th:href="@{/deletarConvidado(rg=${convidado.rg})}"><i class="material-icons">delete</i></a>
                     </td>
                 
             </tr>
