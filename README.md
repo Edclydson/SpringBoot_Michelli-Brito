@@ -1,4 +1,4 @@
-# [Eventos App](https://aplicacaoeventos.herokuapp.com/) - Curso Java + Springboot Michelli Brito
+# Eventos App - Curso Java + Springboot Michelli Brito
 
 ### Tecnologias Usadas
 #### -  Backend
@@ -10,7 +10,7 @@
 
 
 #### -  Banco de dados
-##### MySQL(Local) e PostgreSQL(Online)
+##### MySQL
 
 #### - Deploy 
 ##### Heroku
